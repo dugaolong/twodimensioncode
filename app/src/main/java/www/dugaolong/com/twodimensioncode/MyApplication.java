@@ -15,8 +15,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-//        // 默认配置
-//        QrScanConfiguration configuration = QrScanConfiguration.createDefault(this);
 
         // 自定义配置
         QrScanConfiguration configuration = new QrScanConfiguration.Builder(this)
