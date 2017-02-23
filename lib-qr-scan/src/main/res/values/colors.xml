@@ -11,6 +11,8 @@
     <color name="scan_tip">#FFFFFFFF</color>
     <color name="scan_title">#FFFFFFFF</color>
 
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
 
 
 </resources>

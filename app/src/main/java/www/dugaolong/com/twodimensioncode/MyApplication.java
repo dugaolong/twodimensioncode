@@ -28,7 +28,7 @@ public class MyApplication extends Application {
                 .setTipTextColor(R.color.white)
                 .setSlideIcon(R.mipmap.capture_add_scanning)
                 .setAngleColor(R.color.white)
-                .setMaskColor(R.color.black_80)
+                .setMaskColor(R.color.black)
                 .setScanFrameRectRate((float) 0.8)
                 .build();
         QrScan.getInstance().init(configuration);
