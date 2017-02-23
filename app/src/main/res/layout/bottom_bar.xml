@@ -18,13 +18,14 @@
             android:gravity="center"
             android:orientation="vertical">
 
+
             <ImageButton
                 android:id="@+id/btn_tab_bottom_scan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/main_scan_unselected" />
+                android:src="@drawable/main_scan_selected" />
 
             <TextView
                 android:layout_width="wrap_content"
