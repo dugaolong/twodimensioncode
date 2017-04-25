@@ -5,15 +5,24 @@
     android:layout_height="fill_parent"
     android:background="#fcfcfc"
     android:orientation="vertical" >
-    
-    <include layout="@layout/title_bar"/>
 
-   	<TextView 
+	<RelativeLayout
+		android:id="@+id/titlelayout"
+		style="@style/TitleStyle" >
+
+		<TextView
+			android:id="@+id/tv_title"
+			style="@style/titleTextStyle"
+			android:text="设置" />
+
+	</RelativeLayout>
+
+	<TextView
    	    android:layout_width="fill_parent"
    	    android:layout_height="0dp"
    	    android:layout_weight="1"
    	    android:gravity="center"
-   	    android:text="this is third tab !"
+   	    android:text="this is fourth tab !"
    	    android:textColor="#000000"
    	    android:textSize="30sp"
    	    />

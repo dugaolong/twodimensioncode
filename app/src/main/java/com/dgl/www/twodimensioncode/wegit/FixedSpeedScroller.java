@@ -1,9 +1,12 @@
-package www.dugaolong.com.twodimensioncode.wegit;
+package com.dgl.www.twodimensioncode.wegit;
 
 import android.content.Context;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
 
+/**
+ * 设置ViewPager的滑动速度
+ */
 public class FixedSpeedScroller extends Scroller {
     private int mDuration = 0;
 

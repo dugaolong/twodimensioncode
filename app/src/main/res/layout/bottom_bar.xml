@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/main_scan_selected" />
+                android:src="@drawable/capture_scan_selected" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/main_create_unselected" />
+                android:src="@drawable/star_empty" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/main_history_unselected" />
+                android:src="@drawable/capture_history" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -94,12 +94,12 @@
                 android:layout_height="wrap_content"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@drawable/main_about_unselected" />
+                android:src="@drawable/capture_user" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="关于" />
+                android:text="设置" />
         </LinearLayout>
     </LinearLayout>
 

@@ -1,23 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="www.dugaolong.com.twodimensioncode">
+    package="com.dgl.www.twodimensioncode">
+
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!-- 声明一项 < uses-feature > 的目的，是为了把应用程序所依赖的软硬件特性告知应用程序之外
+    的对象。 本元素给出了一个 required 属性， 用于指定应用程序是否必需该项特性，也即不声明该项特性的话就无法正常运行；
+     或者最好是提供该项特性，但没有的话也能运行。   -->
+    <uses-feature android:name="android.permission.WRITE_SETTINGS" />
 
     <application
-        android:name=".MyApplication"
+        android:name="com.dgl.www.twodimensioncode.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <!--<activity android:name="com.dgl.www.twodimensioncode.IndexActivity"/>-->
+        <activity android:name="com.dgl.www.twodimensioncode.ui.StarActivity">
 
-        </activity>
-        <activity android:name=".IndexActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            </activity>
+        <activity android:name="com.dgl.www.twodimensioncode.ui.ScanActivity"/>
+        <activity android:name="com.dgl.www.twodimensioncode.ui.HistoryActivity"/>
+        <activity android:name="com.dgl.www.twodimensioncode.ui.SettingActivity"/>
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+        <activity android:name="com.dgl.www.twodimensioncode.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name="com.netease.scan.ui.CaptureActivity"
             android:screenOrientation="portrait"
