@@ -30,6 +30,7 @@ import com.dgl.www.twodimensioncode.config.XXTActivityString;
 import com.dgl.www.twodimensioncode.ui.HistoryActivity;
 import com.dgl.www.twodimensioncode.ui.ScanActivity;
 import com.dgl.www.twodimensioncode.ui.SettingActivity;
+import com.dgl.www.twodimensioncode.ui.StarActivity;
 
 import java.util.HashMap;
 import java.util.List;
@@ -43,7 +44,7 @@ import java.util.Map;
 @SuppressLint("NewApi")
 public class MainActivity extends ActivityGroup implements OnClickListener {
 
-//    private RadioButton star;// star
+    private RadioButton star;// star
     private RadioButton scan;// 扫描
     private RadioButton history;// history
     private RadioButton setting;// setting
@@ -92,7 +93,7 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
 //        user_imageview = (ImageView) findViewById(R.id.user_imageview);
 //        user_imageview.setOnClickListener(this);
         container = (FrameLayout) findViewById(R.id.fragmentRoot);
-//        star = (RadioButton) findViewById(R.id.star_button);
+        star = (RadioButton) findViewById(R.id.star_button);
         scan = (RadioButton) findViewById(R.id.scan_button);
         history = (RadioButton) findViewById(R.id.history_button);
         setting = (RadioButton) findViewById(R.id.setting_button);
@@ -129,7 +130,7 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
 
     private void initListener() {
         scan.setOnClickListener(this);
-//        star.setOnClickListener(this);
+        star.setOnClickListener(this);
         history.setOnClickListener(this);
         setting.setOnClickListener(this);
     }
@@ -146,10 +147,10 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
 //                user_imageview.setVisibility(View.VISIBLE);
                 launchActivity(XXTActivityString.ScanActivity, ScanActivity.class);
                 break;
-//            case R.id.star_button:
+            case R.id.star_button:
 //                user_imageview.setVisibility(View.GONE);
-//                launchActivity(XXTActivityString.StarActivity, StarActivity.class);
-//                break;
+                launchActivity(XXTActivityString.StarActivity, StarActivity.class);
+                break;
             case R.id.history_button:
 //                user_imageview.setVisibility(View.GONE);
                 launchActivity(XXTActivityString.HistoryActivity, HistoryActivity.class);
@@ -207,7 +208,7 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
         */
     private void showActivity() {
         Drawable myImage = this.getResources().getDrawable(R.drawable.star);
-//        star.setCompoundDrawablesWithIntrinsicBounds(null, myImage, null, null);
+        star.setCompoundDrawablesWithIntrinsicBounds(null, myImage, null, null);
         myImage = this.getResources().getDrawable(R.drawable.scan);
         scan.setCompoundDrawablesWithIntrinsicBounds(null, myImage, null, null);
         myImage = this.getResources().getDrawable(R.drawable.history);

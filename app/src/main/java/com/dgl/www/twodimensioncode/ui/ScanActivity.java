@@ -12,6 +12,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dgl.www.twodimensioncode.R;
@@ -25,10 +27,12 @@ import com.netease.scan.ui.CaptureActivity;
 
 public class ScanActivity extends Activity implements View.OnClickListener {
 
-    private static final int REQUEST_CODE_SCAN = 0x0000;
     private Context mContext;
     private CaptureActivity mCaptureContext;
     private Toolbar mToolbar;
+    private TextView textView;
+    private LinearLayout linearLayout;
+    private String resultlStr;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,6 +41,8 @@ public class ScanActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.scan);
         mContext = this;
 
+        textView = (TextView) findViewById(R.id.result);
+        linearLayout = (LinearLayout) findViewById(R.id.resultLl);
         findViewById(R.id.scanBtn).setOnClickListener(this);
 
     }
@@ -52,6 +58,7 @@ public class ScanActivity extends Activity implements View.OnClickListener {
                     launch();
                 }
                 break;
+
         }
 
     }
@@ -74,46 +81,21 @@ public class ScanActivity extends Activity implements View.OnClickListener {
         QrScan.getInstance().launchScan(mContext, new IScanModuleCallBack() {
             @Override
             public void OnReceiveDecodeResult(final Context context, String result) {
+                resultlStr = result;
                 mCaptureContext = (CaptureActivity) context;
                 Log.i("ScanActivity:", "result:" + result);
                 try {
-                    gotoWebView(result);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("uri",result);
+                    Intent intent = new Intent(ScanActivity.this,ResultActivity.class);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
-
-//                AlertDialog dialog = new AlertDialog.Builder(mCaptureContext)
-//                        .setMessage(result)
-//                        .setCancelable(false)
-//                        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                dialog.dismiss();
-//                                QrScan.getInstance().restartScan(mCaptureContext);
-//                            }
-//                        })
-//                        .setPositiveButton("关闭", new DialogInterface.OnClickListener() {
-//                            @Override
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                dialog.dismiss();
-//                                QrScan.getInstance().finishScan(mCaptureContext);
-//                            }
-//                        })
-//                        .create();
-//                dialog.show();
-
             }
         });
     }
 
-    /*
-   H5页面跳转
-    */
-    protected void gotoWebView(final String url) {
-        Intent intent = new Intent(this, BrowserActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putString(BrowserActivity.URL, url);
-        intent.putExtras(bundle);
-        startActivity(intent);
-    }
+
 }

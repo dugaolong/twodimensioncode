@@ -13,19 +13,33 @@
 		<TextView
 			android:id="@+id/tv_title"
 			style="@style/titleTextStyle"
-			android:text="收藏" />
+			android:text="生成" />
 
 	</RelativeLayout>
 
-	<TextView
+	<EditText
+		android:background="@drawable/shape_corner_bg"
+		android:layout_margin="18dp"
+		android:id="@+id/editTextIn"
+		android:layout_width="match_parent"
+		android:padding="6dp"
+		android:layout_height="wrap_content"
+		android:gravity="left|center_vertical"
+		android:textColor="@color/blue"/>
+
+	<Button
+		android:id="@+id/createQr"
 		android:layout_width="fill_parent"
-		android:layout_height="0dp"
-		android:layout_weight="1"
-		android:gravity="center"
-		android:text="this is 收藏 !"
-		android:textColor="#000000"
-		android:textSize="30sp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="30dp"
+		android:text="根据填写的内容生成二维码"
+		android:layout_margin="8dp"
+		android:background="@drawable/theme_color_public_btn"/>
+
+	<ImageView
+		android:id="@+id/iv_qr_image"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center"
 		/>
-
-
 </LinearLayout>

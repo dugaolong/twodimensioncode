@@ -60,20 +60,20 @@
                 android:textColor="@color/tab_text_selector"
                 android:textSize="12sp" />
 
-            <!--<RadioButton-->
-                <!--android:id="@+id/star_button"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:layout_weight="1"-->
-                <!--android:button="@null"-->
-                <!--android:drawableTop="@drawable/contacts_button"-->
-                <!--android:gravity="center"-->
-                <!--android:paddingLeft="0dp"-->
-                <!--android:singleLine="true"-->
-                <!--android:text="收藏"-->
-                <!--android:textColor="@color/tab_text_selector"-->
-                <!--android:textSize="12sp"/>-->
+            <RadioButton
+                android:id="@+id/star_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/contacts_button"
+                android:gravity="center"
+                android:paddingLeft="0dp"
+                android:singleLine="true"
+                android:text="生成"
+                android:textColor="@color/tab_text_selector"
+                android:textSize="12sp"/>
 
             <RadioButton
                 android:id="@+id/history_button"

@@ -10,6 +10,8 @@ import android.util.Log;
 import com.netease.scan.QrScan;
 import com.netease.scan.QrScanConfiguration;
 
+import org.litepal.LitePalApplication;
+
 import java.io.ByteArrayInputStream;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
@@ -35,9 +37,11 @@ public class MyApplication extends Application {
             LogUtil.debug = true;
             LogUtil.showLog(TAG,"LogUtil.debug = true");
         } else {
-            //release版本,没有log
+            //release本,没有log
             LogUtil.debug = false;
         }
+
+        LitePalApplication.initialize(this);
         // 自定义配置
         QrScanConfiguration configuration = new QrScanConfiguration.Builder(this)
                 .setTitleHeight(53)

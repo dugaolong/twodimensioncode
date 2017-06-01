@@ -5,6 +5,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical"
+	android:background="@color/layout_background"
 	tools:context=".MainActivity">
 
 	<RelativeLayout
@@ -20,6 +21,7 @@
 
 
 	<Button
+		android:background="@drawable/theme_color_public_btn"
 		android:layout_margin="18dp"
 		android:id="@+id/scanBtn"
 		android:layout_width="match_parent"

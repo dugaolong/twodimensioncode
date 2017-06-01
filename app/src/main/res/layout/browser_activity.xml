@@ -31,9 +31,20 @@
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:visibility="visible" />
+
+
         </RelativeLayout>
 
-
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:visibility="visible" />
         <LinearLayout
             android:id="@+id/titleLayout2"
             android:layout_width="wrap_content"
@@ -64,6 +75,7 @@
                 android:src="@drawable/share_icon" >
             </ImageView>
         </LinearLayout>
+
     </RelativeLayout>
 
     <RelativeLayout
