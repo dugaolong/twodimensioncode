@@ -17,15 +17,236 @@
 
 	</RelativeLayout>
 
-	<TextView
-   	    android:layout_width="fill_parent"
-   	    android:layout_height="0dp"
-   	    android:layout_weight="1"
-   	    android:gravity="center"
-   	    android:text="this is fourth tab !"
-   	    android:textColor="#000000"
-   	    android:textSize="30sp"
-   	    />
+	<LinearLayout
+		android:id="@+id/rl_main"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dip"
+		android:orientation="vertical" >
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:background="@android:color/white"
+			android:orientation="vertical" >
+
+			<View
+				android:id="@+id/msg_line_view"
+				android:layout_width="fill_parent"
+				android:layout_height="0.5dip"
+				android:background="@color/click_bg" />
+
+			<LinearLayout
+				android:id="@+id/hintTone_layout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@color/white"
+				android:gravity="center_vertical"
+				android:orientation="horizontal"
+				android:padding="12dp" >
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_weight="2.5"
+					android:gravity="left"
+					android:orientation="vertical"
+					android:paddingRight="5dp" >
+
+					<TextView
+						style="@style/SettingFontStyle"
+						android:text="提示音" />
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="6dp"
+						android:textSize="14sp"
+						android:textColor="@android:color/darker_gray"
+						android:text="扫描完成时提示" />
+
+				</LinearLayout>
+
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_weight="2.5"
+					android:gravity="right"
+					android:paddingRight="5dp" >
+
+					<CheckBox
+						android:id="@+id/cb_hintTone"
+						android:layout_width="55dp"
+						android:layout_height="25dp"
+						android:background="@drawable/setting_checkbox_bg"
+						android:button="@null" />
+				</LinearLayout>
+			</LinearLayout>
+
+			<View
+				android:layout_width="fill_parent"
+				android:layout_height="0.5dip"
+				android:background="@color/click_bg" />
+
+			<LinearLayout
+				android:id="@+id/msg_layout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@color/white"
+				android:gravity="center_vertical"
+				android:orientation="horizontal"
+				android:padding="12dp" >
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_weight="2.5"
+					android:gravity="left"
+					android:orientation="vertical"
+					android:paddingRight="5dp" >
+
+					<TextView
+						style="@style/SettingFontStyle"
+						android:text="震动" />
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="6dp"
+						android:textSize="14sp"
+						android:textColor="@android:color/darker_gray"
+						android:text="扫描完成时震动" />
+
+				</LinearLayout>
+
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_weight="2.5"
+					android:gravity="right"
+					android:paddingRight="5dp" >
+
+					<CheckBox
+						android:id="@+id/cb_msg"
+						android:layout_width="55dp"
+						android:layout_height="25dp"
+						android:background="@drawable/setting_checkbox_bg"
+						android:button="@null" />
+				</LinearLayout>
+			</LinearLayout>
+
+			<View
+				android:id="@+id/setting_notify_draft_save_line"
+				android:layout_width="fill_parent"
+				android:layout_height="0.5dip"
+				android:background="@color/click_bg"/>
+
+			<LinearLayout
+				android:id="@+id/copy_layout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@color/white"
+				android:gravity="center_vertical"
+				android:orientation="horizontal"
+				android:padding="12dp" >
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_weight="2.5"
+					android:gravity="left"
+					android:orientation="vertical"
+					android:paddingRight="5dp" >
+
+					<TextView
+						style="@style/SettingFontStyle"
+						android:text="自动复制" />
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="6dp"
+						android:textSize="14sp"
+						android:textColor="@android:color/darker_gray"
+						android:text="自动复制扫描结果到剪切板" />
+
+				</LinearLayout>
+
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_weight="2.5"
+					android:gravity="right"
+					android:paddingRight="5dp" >
+
+					<CheckBox
+						android:id="@+id/cb_copy"
+						android:layout_width="55dp"
+						android:layout_height="25dp"
+						android:background="@drawable/setting_checkbox_bg"
+						android:button="@null" />
+				</LinearLayout>
+			</LinearLayout>
+
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp"
+			android:background="@android:color/white"
+			android:orientation="vertical" >
+
+			<View
+				android:id="@+id/setting_line"
+				android:layout_width="fill_parent"
+				android:layout_height="0.5dip"
+				android:background="@color/click_bg" />
+
+			<LinearLayout
+				android:id="@+id/share_layout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="@color/white"
+				android:gravity="center_vertical"
+				android:orientation="horizontal"
+				android:padding="12dp" >
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_weight="2.5"
+					android:gravity="left"
+					android:orientation="vertical"
+					android:paddingRight="5dp" >
+
+					<TextView
+						style="@style/SettingFontStyle"
+						android:text="分享给好友" />
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="6dp"
+						android:textSize="14sp"
+						android:textColor="@android:color/darker_gray"
+						android:text="将app享给更多的朋友" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+			<View
+				android:id="@+id/setting_line1"
+				android:layout_width="fill_parent"
+				android:layout_height="0.5dip"
+				android:background="@color/click_bg" />
+
+		</LinearLayout>
+
+
+	</LinearLayout>
 
     
 

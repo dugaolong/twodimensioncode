@@ -7,11 +7,24 @@
 	android:orientation="vertical"
 	tools:context=".MainActivity">
 
+	<RelativeLayout
+		android:id="@+id/titlelayout"
+		style="@style/TitleStyle" >
+
+		<TextView
+			android:id="@+id/tv_title"
+			style="@style/titleTextStyle"
+			android:text="扫描" />
+
+	</RelativeLayout>
+
+
 	<Button
 		android:layout_margin="18dp"
 		android:id="@+id/scanBtn"
 		android:layout_width="match_parent"
 		android:layout_height="50dp"
 		android:text="扫描二维码" />
+
 
 </LinearLayout>

@@ -8,6 +8,23 @@
         android:id="@+id/popu_view"
         android:layout_width="0dip"
         android:layout_height="0dip" />
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary">
+        <!--添加Toolbar的子控件-->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="标题"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+    </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
         android:id="@+id/bottomList"
@@ -35,7 +52,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:button="@null"
-                android:drawableTop="@drawable/msg_button"
+                android:drawableTop="@drawable/scan"
                 android:gravity="center"
                 android:paddingLeft="0dp"
                 android:singleLine="true"
@@ -43,20 +60,20 @@
                 android:textColor="@color/tab_text_selector"
                 android:textSize="12sp" />
 
-            <RadioButton
-                android:id="@+id/star_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:button="@null"
-                android:drawableTop="@drawable/contacts_button"
-                android:gravity="center"
-                android:paddingLeft="0dp"
-                android:singleLine="true"
-                android:text="收藏"
-                android:textColor="@color/tab_text_selector"
-                android:textSize="12sp"/>
+            <!--<RadioButton-->
+                <!--android:id="@+id/star_button"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_weight="1"-->
+                <!--android:button="@null"-->
+                <!--android:drawableTop="@drawable/contacts_button"-->
+                <!--android:gravity="center"-->
+                <!--android:paddingLeft="0dp"-->
+                <!--android:singleLine="true"-->
+                <!--android:text="收藏"-->
+                <!--android:textColor="@color/tab_text_selector"-->
+                <!--android:textSize="12sp"/>-->
 
             <RadioButton
                 android:id="@+id/history_button"
@@ -64,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
-                android:drawableTop="@drawable/home_school_ring_button"
+                android:drawableTop="@drawable/capture_history"
                 android:gravity="center"
                 android:paddingLeft="0dp"
                 android:singleLine="true"
@@ -79,7 +96,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:button="@null"
-                android:drawableTop="@drawable/found_button"
+                android:drawableTop="@drawable/capture_history"
                 android:gravity="center"
                 android:paddingLeft="0dp"
                 android:singleLine="true"
@@ -99,12 +116,12 @@
         android:orientation="vertical" >
     </FrameLayout>
 
-    <ImageView
-        android:id="@+id/user_imageview"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_margin="8dip"
-        android:src="@drawable/person_face_ico" />
+    <!--<ImageView-->
+        <!--android:id="@+id/user_imageview"-->
+        <!--android:layout_width="30dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_margin="8dip"-->
+        <!--android:src="@drawable/person_face_ico" />-->
 
 </RelativeLayout>

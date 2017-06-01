@@ -13,11 +13,9 @@ import android.annotation.SuppressLint;
 import android.app.ActivityGroup;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.view.View;
@@ -26,16 +24,13 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 
 import com.dgl.www.twodimensioncode.config.XXTActivityString;
 import com.dgl.www.twodimensioncode.ui.HistoryActivity;
 import com.dgl.www.twodimensioncode.ui.ScanActivity;
 import com.dgl.www.twodimensioncode.ui.SettingActivity;
-import com.dgl.www.twodimensioncode.ui.StarActivity;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,18 +43,15 @@ import java.util.Map;
 @SuppressLint("NewApi")
 public class MainActivity extends ActivityGroup implements OnClickListener {
 
-    private RadioButton star;// star
+//    private RadioButton star;// star
     private RadioButton scan;// 扫描
     private RadioButton history;// history
     private RadioButton setting;// setting
     private FrameLayout container;
-    private SharedPreferences preference, sp, isupdatecontacts;
-    private SharedPreferences spbefor;
-    private String session;
     private Context mContext;
     private static int default_sound_state = -1;
     private List<Map<String, String>> list;
-    private ImageView user_imageview;//用户头像
+//    private ImageView user_imageview;//用户头像
 
 
 
@@ -80,15 +72,6 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
         } catch (SettingNotFoundException e) {
             e.printStackTrace();
         }
-        sp = getSharedPreferences("login.xml", Context.MODE_PRIVATE);
-        spbefor = getSharedPreferences("accountSharedPrefrences.xml", Context.MODE_PRIVATE);
-        if (spbefor != null) {
-            cleanSharedPreference(this);
-        }
-        preference = PreferenceManager.getDefaultSharedPreferences(this);
-        if (session == null || session.equals("")) {
-            session = sp.getString("session", "");
-        }
         mContext = this;
         //PushManager.getInstance().initialize(this.getApplicationContext());
         //stopService(new Intent(this, MsgService.class));
@@ -100,41 +83,16 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
 
 
 
-
-    /**
-     * * 清除本应用SharedPreference(/data/data/com.xxx.xxx/shared_prefs) *
-     *
-     * @param context
-     */
-    public static void cleanSharedPreference(Context context) {
-        deleteFilesByDirectory(new File("/data/data/" + context.getPackageName() + "/shared_prefs/accountSharedPrefrences.xml"));
-    }
-
-    /**
-     * 删除方法 这里只会删除某个文件夹下的文件，如果传入的directory是个文件，将不做处理 * * @param directory
-     */
-    private static void deleteFilesByDirectory(File directory) {
-        if (directory != null && directory.exists() && directory.isDirectory()) {
-            for (File item : directory.listFiles()) {
-                item.delete();
-            }
-        }
-    }
-
-
     @Override
     protected void onResume() {
         super.onResume();
-        if (session == null || session.equals("")) {
-            session = sp.getString("session", "");
-        }
     }
 
     private void initView() {
-        user_imageview = (ImageView) findViewById(R.id.user_imageview);
-        user_imageview.setOnClickListener(this);
+//        user_imageview = (ImageView) findViewById(R.id.user_imageview);
+//        user_imageview.setOnClickListener(this);
         container = (FrameLayout) findViewById(R.id.fragmentRoot);
-        star = (RadioButton) findViewById(R.id.star_button);
+//        star = (RadioButton) findViewById(R.id.star_button);
         scan = (RadioButton) findViewById(R.id.scan_button);
         history = (RadioButton) findViewById(R.id.history_button);
         setting = (RadioButton) findViewById(R.id.setting_button);
@@ -171,7 +129,7 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
 
     private void initListener() {
         scan.setOnClickListener(this);
-        star.setOnClickListener(this);
+//        star.setOnClickListener(this);
         history.setOnClickListener(this);
         setting.setOnClickListener(this);
     }
@@ -182,23 +140,23 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         switch (id) {
-            case R.id.user_imageview:
-                break;
+//            case R.id.user_imageview:
+//                break;
             case R.id.scan_button:
-                user_imageview.setVisibility(View.VISIBLE);
+//                user_imageview.setVisibility(View.VISIBLE);
                 launchActivity(XXTActivityString.ScanActivity, ScanActivity.class);
                 break;
-            case R.id.star_button:
-                user_imageview.setVisibility(View.GONE);
-                launchActivity(XXTActivityString.StarActivity, StarActivity.class);
-                break;
+//            case R.id.star_button:
+//                user_imageview.setVisibility(View.GONE);
+//                launchActivity(XXTActivityString.StarActivity, StarActivity.class);
+//                break;
             case R.id.history_button:
-                user_imageview.setVisibility(View.GONE);
+//                user_imageview.setVisibility(View.GONE);
                 launchActivity(XXTActivityString.HistoryActivity, HistoryActivity.class);
 
                 break;
             case R.id.setting_button:
-                user_imageview.setVisibility(View.GONE);
+//                user_imageview.setVisibility(View.GONE);
                 LogUtil.showLog("app", "go in  setting");
                 try {
                     launchActivity(XXTActivityString.SettingActivity, SettingActivity.class);
@@ -249,7 +207,7 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
         */
     private void showActivity() {
         Drawable myImage = this.getResources().getDrawable(R.drawable.star);
-        star.setCompoundDrawablesWithIntrinsicBounds(null, myImage, null, null);
+//        star.setCompoundDrawablesWithIntrinsicBounds(null, myImage, null, null);
         myImage = this.getResources().getDrawable(R.drawable.scan);
         scan.setCompoundDrawablesWithIntrinsicBounds(null, myImage, null, null);
         myImage = this.getResources().getDrawable(R.drawable.history);

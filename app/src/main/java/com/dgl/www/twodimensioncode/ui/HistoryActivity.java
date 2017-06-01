@@ -14,7 +14,7 @@ public class HistoryActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.history);
+        setTitle("历史记录");
     }
 }
