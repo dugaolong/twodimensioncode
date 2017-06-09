@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.util.Log;
 
+import com.dgl.www.twodimensioncode.utils.LogUtil;
 import com.netease.scan.QrScan;
 import com.netease.scan.QrScanConfiguration;
 

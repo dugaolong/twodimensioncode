@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.dgl.www.twodimensioncode;
+package com.dgl.www.twodimensioncode.utils;
 
 import android.util.Log;
 

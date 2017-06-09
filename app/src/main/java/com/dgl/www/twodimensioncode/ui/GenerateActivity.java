@@ -12,21 +12,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.dgl.www.twodimensioncode.LogUtil;
 import com.dgl.www.twodimensioncode.R;
 import com.dgl.www.twodimensioncode.bean.QrCode;
 import com.dgl.www.twodimensioncode.config.BitmapUtil;
+import com.dgl.www.twodimensioncode.utils.LogUtil;
 import com.google.zxing.WriterException;
+
+import java.io.ByteArrayOutputStream;
 
 import static com.dgl.www.twodimensioncode.ToastUtils.showToast;
 
 /**
  * Created by dugaolong on 17/3/1.
+ * 生成二维码
  */
 
-public class StarActivity extends Activity implements View.OnClickListener {
+public class GenerateActivity extends Activity implements View.OnClickListener {
 
-    private static final String TAG = "StarActivity";
+    private static final String TAG = "GenerateActivity";
     private Button createQr;
     private EditText editTextIn;
     private ImageView iv_qr_image;
@@ -49,11 +52,12 @@ public class StarActivity extends Activity implements View.OnClickListener {
     }
 
     //生成二维码
-    public void Create2QR(String editTextUri) {
+    public Bitmap Create2QR(String editTextUri) {
+        Bitmap bitmap = null;
         if (TextUtils.isEmpty(editTextUri)) {
             showToast("填写内容为空");
         } else {
-            Bitmap bitmap;
+
             try {
                 bitmap = BitmapUtil.createQRCode(editTextUri, mScreenWidth);
                 if (bitmap != null) {
@@ -63,6 +67,7 @@ public class StarActivity extends Activity implements View.OnClickListener {
                 e.printStackTrace();
             }
         }
+        return bitmap;
     }
 
     @Override
@@ -72,13 +77,14 @@ public class StarActivity extends Activity implements View.OnClickListener {
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
                 editTextStr = editTextIn.getText().toString();
-                Create2QR(editTextStr);
+                Bitmap bitmap = Create2QR(editTextStr);
+                byte[] bytes = bitmap2byte(bitmap);
                 //插入数据库
                 QrCode qrCode = new QrCode();
                 qrCode.setTime(System.currentTimeMillis());
                 qrCode.setContent(editTextStr);
                 qrCode.setType(editTextStr.contains("http") ? 1 : 2);
-
+                qrCode.setBlob(bytes);
                 if (qrCode.save()) {
                     LogUtil.showLog(TAG, "插入数据库 成功");
                 } else {
@@ -86,5 +92,11 @@ public class StarActivity extends Activity implements View.OnClickListener {
                 }
                 break;
         }
+    }
+
+    public byte[] bitmap2byte(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        return baos.toByteArray();
     }
 }

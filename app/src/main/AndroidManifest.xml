@@ -23,13 +23,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <!--<activity android:name="com.dgl.www.twodimensioncode.IndexActivity"/>-->
-        <activity android:name="com.dgl.www.twodimensioncode.ui.StarActivity">
-
-            </activity>
+        <activity android:name=".ui.GenerateActivity"></activity>
         <activity android:name="com.dgl.www.twodimensioncode.ui.ScanActivity"/>
         <activity android:name="com.dgl.www.twodimensioncode.ui.HistoryActivity"/>
         <activity android:name="com.dgl.www.twodimensioncode.ui.SettingActivity"/>
         <activity android:name="com.dgl.www.twodimensioncode.ui.ResultActivity"/>
+        <activity android:name="com.dgl.www.twodimensioncode.ui.HistoryDetailActivity"/>
 
         <activity android:name="com.dgl.www.twodimensioncode.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">

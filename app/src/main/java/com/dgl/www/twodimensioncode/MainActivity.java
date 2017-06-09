@@ -27,10 +27,11 @@ import android.widget.FrameLayout;
 import android.widget.RadioButton;
 
 import com.dgl.www.twodimensioncode.config.XXTActivityString;
+import com.dgl.www.twodimensioncode.ui.GenerateActivity;
 import com.dgl.www.twodimensioncode.ui.HistoryActivity;
 import com.dgl.www.twodimensioncode.ui.ScanActivity;
 import com.dgl.www.twodimensioncode.ui.SettingActivity;
-import com.dgl.www.twodimensioncode.ui.StarActivity;
+import com.dgl.www.twodimensioncode.utils.LogUtil;
 
 import java.util.HashMap;
 import java.util.List;
@@ -149,7 +150,7 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
                 break;
             case R.id.star_button:
 //                user_imageview.setVisibility(View.GONE);
-                launchActivity(XXTActivityString.StarActivity, StarActivity.class);
+                launchActivity(XXTActivityString.StarActivity, GenerateActivity.class);
                 break;
             case R.id.history_button:
 //                user_imageview.setVisibility(View.GONE);
