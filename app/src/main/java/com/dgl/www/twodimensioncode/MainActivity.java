@@ -45,7 +45,7 @@ import java.util.Map;
 @SuppressLint("NewApi")
 public class MainActivity extends ActivityGroup implements OnClickListener {
 
-    private RadioButton star;// star
+    private RadioButton star;// generate
     private RadioButton scan;// 扫描
     private RadioButton history;// history
     private RadioButton setting;// setting

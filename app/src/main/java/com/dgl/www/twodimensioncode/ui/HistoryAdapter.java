@@ -15,7 +15,7 @@ import com.dgl.www.twodimensioncode.utils.DateUtil;
 
 import java.util.List;
 
-class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHolder> implements View.OnClickListener {
+class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHolder> implements View.OnClickListener ,View.OnLongClickListener{
 
     private List<QrCode> mDatas;
 
@@ -31,6 +31,7 @@ class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHolder> i
         MyViewHolder vh = new MyViewHolder(view);
         //将创建的View注册点击事件
         view.setOnClickListener(this);
+        view.setOnLongClickListener(this);
         return vh;
     }
 
@@ -56,6 +57,8 @@ class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHolder> i
         return mDatas.size();
     }
 
+
+
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView id_type, id_time, id_content;
         ImageView iv;
@@ -70,6 +73,7 @@ class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHolder> i
         }
     }
 
+    //点击事件
     public static interface OnRecyclerViewItemClickListener {
         void onItemClick(View view, int position);
     }
@@ -81,11 +85,33 @@ class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.MyViewHolder> i
         this.mOnItemClickListener = listener;
     }
 
+
+
     @Override
     public void onClick(View v) {
         if (mOnItemClickListener != null) {
             //注意这里使用getTag方法获取数据
             mOnItemClickListener.onItemClick(v, (int)v.getTag());
         }
+    }
+
+    //点击长按
+    public static interface OnRecyclerViewItemLongClickListener {
+        void onItemLongClick(View view, int position);
+    }
+
+
+    private OnRecyclerViewItemLongClickListener mOnItemLongClickListener = null;
+
+    public void setOnItemLongClickListener(OnRecyclerViewItemLongClickListener listener) {
+        this.mOnItemLongClickListener = listener;
+    }
+    @Override
+    public boolean onLongClick(View view) {
+        if (mOnItemLongClickListener != null) {
+            //注意这里使用getTag方法获取数据
+            mOnItemLongClickListener.onItemLongClick(view, (int)view.getTag());
+        }
+        return true;
     }
 }

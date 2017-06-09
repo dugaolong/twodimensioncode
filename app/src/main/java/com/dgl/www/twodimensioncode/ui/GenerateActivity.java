@@ -39,7 +39,7 @@ public class GenerateActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.star);
+        setContentView(R.layout.generate);
         editTextIn = (EditText) findViewById(R.id.editTextIn);
         createQr = (Button) findViewById(R.id.createQr);
         iv_qr_image = (ImageView) findViewById(R.id.iv_qr_image);
@@ -74,10 +74,13 @@ public class GenerateActivity extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.createQr:
+                //隐藏键盘
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+//                imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+                imm.hideSoftInputFromWindow(editTextIn.getWindowToken(), 0);
                 editTextStr = editTextIn.getText().toString();
                 Bitmap bitmap = Create2QR(editTextStr);
+                if(null == bitmap) return;
                 byte[] bytes = bitmap2byte(bitmap);
                 //插入数据库
                 QrCode qrCode = new QrCode();

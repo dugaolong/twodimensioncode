@@ -23,6 +23,7 @@
 		android:id="@+id/editTextIn"
 		android:layout_width="match_parent"
 		android:padding="6dp"
+		android:hint="输入要生成二维码的信息"
 		android:layout_height="wrap_content"
 		android:gravity="left|center_vertical"
 		android:textColor="@color/blue"/>

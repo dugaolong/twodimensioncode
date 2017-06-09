@@ -22,8 +22,8 @@
             <ImageView
                 android:id="@+id/iv"
                 android:layout_gravity="center_vertical"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/scan"
                 android:layout_marginRight="6dp"/>
@@ -44,7 +44,7 @@
                         android:layout_height="match_parent"
                         android:gravity="left"
                         android:layout_marginBottom="3dp"
-                        android:text="就赶快房间观看"
+                        android:text=""
                         android:textColor="@color/black" />
                     <TextView
                         android:id="@+id/id_time"
@@ -52,7 +52,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="right"
-                        android:text="6月8日"
+                        android:text=""
                         android:textColor="@color/black" />
 
                 </LinearLayout>
@@ -63,7 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="left"
-                    android:text="顶顶顶顶顶顶顶顶顶顶多多多多多多"
+                    android:text=""
                     android:textColor="@color/black" />
 
 
