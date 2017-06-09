@@ -8,8 +8,6 @@ import android.content.pm.Signature;
 import android.util.Log;
 
 import com.dgl.www.twodimensioncode.utils.LogUtil;
-import com.netease.scan.QrScan;
-import com.netease.scan.QrScanConfiguration;
 
 import org.litepal.LitePalApplication;
 
@@ -43,22 +41,22 @@ public class MyApplication extends Application {
         }
 
         LitePalApplication.initialize(this);
-        // 自定义配置
-        QrScanConfiguration configuration = new QrScanConfiguration.Builder(this)
-                .setTitleHeight(53)
-                .setTitleText("来扫一扫")
-                .setTitleTextSize(18)
-                .setTitleTextColor(R.color.white)
-                .setTipText("将二维码放入框内扫描~")
-                .setTipTextSize(14)
-                .setTipMarginTop(40)
-                .setTipTextColor(R.color.white)
-                .setSlideIcon(R.mipmap.capture_add_scanning)
-                .setAngleColor(R.color.white)
-                .setMaskColor(R.color.black)
-                .setScanFrameRectRate((float) 0.8)
-                .build();
-        QrScan.getInstance().init(configuration);
+//        // 自定义配置
+//        QrScanConfiguration configuration = new QrScanConfiguration.Builder(this)
+//                .setTitleHeight(53)
+//                .setTitleText("来扫一扫")
+//                .setTitleTextSize(18)
+//                .setTitleTextColor(R.color.white)
+//                .setTipText("将二维码放入框内扫描~")
+//                .setTipTextSize(14)
+//                .setTipMarginTop(40)
+//                .setTipTextColor(R.color.white)
+//                .setSlideIcon(R.mipmap.capture_add_scanning)
+//                .setAngleColor(R.color.white)
+//                .setMaskColor(R.color.black)
+//                .setScanFrameRectRate((float) 0.8)
+//                .build();
+//        QrScan.getInstance().init(configuration);
 
         //当前所在的Activity
         String runningActivityName = MyApplication.getInstance().getRunningActivityName();

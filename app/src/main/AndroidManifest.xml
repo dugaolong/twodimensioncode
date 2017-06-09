@@ -29,6 +29,7 @@
         <activity android:name="com.dgl.www.twodimensioncode.ui.SettingActivity"/>
         <activity android:name="com.dgl.www.twodimensioncode.ui.ResultActivity"/>
         <activity android:name="com.dgl.www.twodimensioncode.ui.HistoryDetailActivity"/>
+        <activity android:name="com.dgl.www.twodimensioncode.ui.CustomScanActivity"/>
 
         <activity android:name="com.dgl.www.twodimensioncode.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -38,9 +39,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.netease.scan.ui.CaptureActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <!--<activity android:name="com.netease.scan.ui.CaptureActivity"-->
+            <!--android:screenOrientation="portrait"-->
+            <!--android:theme="@style/Theme.AppCompat.NoActionBar"/>-->
 
         <activity
             android:name=".wxapi.WXEntryActivity"

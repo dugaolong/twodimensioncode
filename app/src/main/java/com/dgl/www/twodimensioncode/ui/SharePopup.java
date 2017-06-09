@@ -14,7 +14,7 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.ImageView;
 
 import com.dgl.www.twodimensioncode.R;
-import com.netease.scan.util.ToastUtil;
+import com.dgl.www.twodimensioncode.ToastUtils;
 import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.modelmsg.WXWebpageObject;
@@ -150,7 +150,7 @@ public class SharePopup extends Activity implements OnClickListener {
     // 分享到微信
     private void shareToWeiXin(final int scene) {
         if (!api.isWXAppInstalled()) {//检查是否已安装微信
-            ToastUtil.showToast(this, "请先安装微信客户端");
+            ToastUtils.showToast("请先安装微信客户端");
             finish();
             return;
         }

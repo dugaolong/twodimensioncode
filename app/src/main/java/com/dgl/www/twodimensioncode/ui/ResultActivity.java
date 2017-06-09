@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,6 +28,8 @@ public class ResultActivity extends Activity implements View.OnClickListener {
     private Button buttonCopy, gotoWeb;
     private LinearLayout linearLayout;
     private String resultStr;
+    private TextView btn_back_return;
+    private ImageView btn_back;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,6 +70,12 @@ public class ResultActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.buttonCopy:
                 copyStr(resultStr);
+                break;
+            case R.id.btn_back_return:
+                finish();
+                break;
+            case R.id.btn_back:
+                finish();
                 break;
         }
 

@@ -17,9 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dgl.www.twodimensioncode.R;
-import com.netease.scan.IScanModuleCallBack;
-import com.netease.scan.QrScan;
-import com.netease.scan.ui.CaptureActivity;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 /**
  * Created by dugaolong on 17/3/1.
@@ -28,7 +27,7 @@ import com.netease.scan.ui.CaptureActivity;
 public class ScanActivity extends Activity implements View.OnClickListener {
 
     private Context mContext;
-    private CaptureActivity mCaptureContext;
+//    private CaptureActivity mCaptureContext;
     private Toolbar mToolbar;
     private TextView textView;
     private LinearLayout linearLayout;
@@ -55,7 +54,7 @@ public class ScanActivity extends Activity implements View.OnClickListener {
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
                 } else {
-                    launch();
+                    customScan();
                 }
                 break;
 
@@ -68,7 +67,7 @@ public class ScanActivity extends Activity implements View.OnClickListener {
         switch (requestCode) {
             case 1:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    launch();
+                    customScan();
                 } else {
                     Toast.makeText(this, "You denied the permission", Toast.LENGTH_LONG).show();
                 }
@@ -77,16 +76,49 @@ public class ScanActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    public void launch() {
-        QrScan.getInstance().launchScan(mContext, new IScanModuleCallBack() {
-            @Override
-            public void OnReceiveDecodeResult(final Context context, String result) {
-                resultlStr = result;
-                mCaptureContext = (CaptureActivity) context;
-                Log.i("ScanActivity:", "result:" + result);
+    // 你也可以使用简单的扫描功能，但是一般扫描的样式和行为都是可以自定义的，这里就写关于自定义的代码了
+// 你可以把这个方法作为一个点击事件
+    public void customScan(){
+        new IntentIntegrator(this)
+                .setOrientationLocked(false)
+                .setCaptureActivity(CustomScanActivity.class) // 设置自定义的activity是CustomActivity
+                .initiateScan(); // 初始化扫描
+    }
+//    public void launch() {
+//        QrScan.getInstance().launchScan(mContext, new IScanModuleCallBack() {
+//            @Override
+//            public void OnReceiveDecodeResult(final Context context, String result) {
+//                resultlStr = result;
+//                mCaptureContext = (CaptureActivity) context;
+//                Log.i("ScanActivity:", "result:" + result);
+//                try {
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("uri",result);
+//                    Intent intent = new Intent(ScanActivity.this,ResultActivity.class);
+//                    intent.putExtras(bundle);
+//                    startActivity(intent);
+//                }catch (Exception e){
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//    }
+
+    @Override
+// 通过 onActivityResult的方法获取 扫描回来的 值
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
+        if(intentResult != null) {
+            if(intentResult.getContents() == null) {
+                Toast.makeText(this,"内容为空",Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this,"扫描成功",Toast.LENGTH_LONG).show();
+                // ScanResult 为 获取到的字符串
+                resultlStr = intentResult.getContents();
+                Log.i("ScanActivity:", "resultlStr:" + resultlStr);
                 try {
                     Bundle bundle = new Bundle();
-                    bundle.putString("uri",result);
+                    bundle.putString("uri",resultlStr);
                     Intent intent = new Intent(ScanActivity.this,ResultActivity.class);
                     intent.putExtras(bundle);
                     startActivity(intent);
@@ -94,8 +126,8 @@ public class ScanActivity extends Activity implements View.OnClickListener {
                     e.printStackTrace();
                 }
             }
-        });
+        } else {
+            super.onActivityResult(requestCode,resultCode,data);
+        }
     }
-
-
 }
