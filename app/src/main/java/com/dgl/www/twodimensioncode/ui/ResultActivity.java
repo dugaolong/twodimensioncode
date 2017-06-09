@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dgl.www.twodimensioncode.R;
+import com.dgl.www.twodimensioncode.config.StaticString;
 
 import static com.dgl.www.twodimensioncode.ToastUtils.showToast;
 
@@ -58,6 +59,10 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         } else {
             buttonCopy.setVisibility(View.VISIBLE);
             gotoWeb.setVisibility(View.GONE);
+        }
+        //自动复制
+        if(StaticString.copy){
+            copyStr(resultStr);
         }
 
     }

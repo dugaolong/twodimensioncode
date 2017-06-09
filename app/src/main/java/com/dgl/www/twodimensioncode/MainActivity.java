@@ -26,7 +26,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 
-import com.dgl.www.twodimensioncode.config.XXTActivityString;
+import com.dgl.www.twodimensioncode.config.StaticString;
 import com.dgl.www.twodimensioncode.ui.GenerateActivity;
 import com.dgl.www.twodimensioncode.ui.HistoryActivity;
 import com.dgl.www.twodimensioncode.ui.ScanActivity;
@@ -108,23 +108,23 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
         mhashmap.put(id, id);
         Intent intent = new Intent(this, activityClass);
         intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);//(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra(XXTActivityString.NOLOGINTYPE, id);
+        intent.putExtra(StaticString.NOLOGINTYPE, id);
         Bundle data = new Bundle();
 
         Window window = getLocalActivityManager().startActivity(id, intent);
         View mview = window.getDecorView();
         mview.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
-        if (id.equals(XXTActivityString.ScanActivity)) {
-            mview.setTag(XXTActivityString.ScanActivity);
+        if (id.equals(StaticString.ScanActivity)) {
+            mview.setTag(StaticString.ScanActivity);
             container.addView(mview);
-        } else if (id.equals(XXTActivityString.StarActivity)) {
-            mview.setTag(XXTActivityString.StarActivity);
+        } else if (id.equals(StaticString.StarActivity)) {
+            mview.setTag(StaticString.StarActivity);
             container.addView(mview);
-        } else if (id.equals(XXTActivityString.HistoryActivity)) {
-            mview.setTag(XXTActivityString.HistoryActivity);
+        } else if (id.equals(StaticString.HistoryActivity)) {
+            mview.setTag(StaticString.HistoryActivity);
             container.addView(mview);
-        } else if (id.equals(XXTActivityString.SettingActivity)) {
-            mview.setTag(XXTActivityString.SettingActivity);
+        } else if (id.equals(StaticString.SettingActivity)) {
+            mview.setTag(StaticString.SettingActivity);
             container.addView(mview);
         }
     }
@@ -146,22 +146,22 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
 //                break;
             case R.id.scan_button:
 //                user_imageview.setVisibility(View.VISIBLE);
-                launchActivity(XXTActivityString.ScanActivity, ScanActivity.class);
+                launchActivity(StaticString.ScanActivity, ScanActivity.class);
                 break;
             case R.id.star_button:
 //                user_imageview.setVisibility(View.GONE);
-                launchActivity(XXTActivityString.StarActivity, GenerateActivity.class);
+                launchActivity(StaticString.StarActivity, GenerateActivity.class);
                 break;
             case R.id.history_button:
 //                user_imageview.setVisibility(View.GONE);
-                launchActivity(XXTActivityString.HistoryActivity, HistoryActivity.class);
+                launchActivity(StaticString.HistoryActivity, HistoryActivity.class);
 
                 break;
             case R.id.setting_button:
 //                user_imageview.setVisibility(View.GONE);
                 LogUtil.showLog("app", "go in  setting");
                 try {
-                    launchActivity(XXTActivityString.SettingActivity, SettingActivity.class);
+                    launchActivity(StaticString.SettingActivity, SettingActivity.class);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -216,7 +216,7 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
         history.setCompoundDrawablesWithIntrinsicBounds(null, myImage, null, null);
         myImage = this.getResources().getDrawable(R.drawable.setting);
         setting.setCompoundDrawablesWithIntrinsicBounds(null, myImage, null, null);
-        launchActivity(XXTActivityString.ScanActivity, ScanActivity.class);
+        launchActivity(StaticString.ScanActivity, ScanActivity.class);
 //        msg.setText(R.string.study_circle);
         scan.setChecked(true);
     }

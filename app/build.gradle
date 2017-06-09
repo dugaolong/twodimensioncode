@@ -51,7 +51,7 @@ dependencies {
     //郭林的数据库
     compile 'org.litepal.android:core:1.3.2'
 
-    compile 'com.android.support:cardview-v7:22.2.1'
+    compile 'com.android.support:cardview-v7:23.2.1'
 
     compile 'com.google.zxing:core:3.2.1'
     compile 'com.journeyapps:zxing-android-embedded:3.3.0'

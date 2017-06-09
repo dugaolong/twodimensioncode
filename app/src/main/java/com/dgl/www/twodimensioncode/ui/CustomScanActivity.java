@@ -40,7 +40,7 @@ public class CustomScanActivity extends AppCompatActivity implements DecoratedBa
         if(!hasFlash()) {
             swichLight.setVisibility(View.GONE);
         }
-
+        swichLight.setOnClickListener(this);
         //重要代码，初始化捕获
         captureManager = new CaptureManager(this,mDBV);
         captureManager.initializeFromIntent(getIntent(),savedInstanceState);
