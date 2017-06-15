@@ -2,6 +2,7 @@ package com.dgl.www.twodimensioncode.wxapi;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
@@ -18,7 +19,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        api = WXAPIFactory.createWXAPI(this, "wxa9139d5f63af3e49", false);
+        api = WXAPIFactory.createWXAPI(this, "wxdd5a382733d796e6", false);
         api.handleIntent(getIntent(), this);
     }
 
@@ -47,9 +48,10 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                 break;
         }
         //只有成功的时候才获得积分
-//        if (result.equals("成功")) {
-//
-//        }
+        if (result.equals("成功")) {
+
+        }
+        Log.e("WXEntryActivity","result="+result);
         this.finish();
 
     }

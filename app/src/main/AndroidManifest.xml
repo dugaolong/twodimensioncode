@@ -30,6 +30,7 @@
         <activity android:name="com.dgl.www.twodimensioncode.ui.ResultActivity"/>
         <activity android:name="com.dgl.www.twodimensioncode.ui.HistoryDetailActivity"/>
         <activity android:name="com.dgl.www.twodimensioncode.ui.CustomScanActivity"/>
+        <activity android:name="com.dgl.www.twodimensioncode.ui.SharePopup"/>
 
         <activity android:name="com.dgl.www.twodimensioncode.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">

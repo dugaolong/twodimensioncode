@@ -1,7 +1,6 @@
 package com.dgl.www.twodimensioncode.ui;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
@@ -54,24 +53,22 @@ public class SharePopup extends Activity implements OnClickListener {
     private IWXAPI api;
 
     //此处填写微信API提供的AppID
-    private String WEIXIN_APP_ID = "";
+    private String WEIXIN_APP_ID = "wxdd5a382733d796e6";
 
-    private AlertDialog mAlertDialog;
+//    private AlertDialog mAlertDialog;
 
-    //老师活动的分享，传45
-    private String extValue = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getBundle();
-        initProgressDialog();
+//        initProgressDialog();
         initApi();
-        if (scene.equals(SCENE_2)) {
-            shareToWeiXin(SendMessageToWX.Req.WXSceneSession);
-        } else if (scene.equals(SCENE_3)) {
-            shareToWeiXin(SendMessageToWX.Req.WXSceneTimeline);
-        }
+//        if (scene.equals(SCENE_2)) {
+//            shareToWeiXin(SendMessageToWX.Req.WXSceneSession);
+//        } else if (scene.equals(SCENE_3)) {
+//            shareToWeiXin(SendMessageToWX.Req.WXSceneTimeline);
+//        }
         normalInit();
     }
 
@@ -86,26 +83,23 @@ public class SharePopup extends Activity implements OnClickListener {
             title = bundle.getString(TITLE);
         if (bundle.containsKey(CONTENT))
             content = bundle.getString(CONTENT);
-        if (bundle.containsKey("extValue")) {
-            extValue = bundle.getString("extValue");
-        }
         if (bundle.containsKey(URL))
             url = bundle.getString(URL);
         if (bundle.containsKey(SCENE))
             scene = bundle.getString(SCENE);
     }
 
-    /**
-     * 初始化progressdialog
-     *
-     * @author hexiaodong
-     */
-    private void initProgressDialog() {
-        mAlertDialog = new AlertDialog.Builder(this).create();
-        mAlertDialog.setTitle(title);
-        mAlertDialog.setMessage("正在加载数据。。。");
-        mAlertDialog.setCancelable(false);
-    }
+//    /**
+//     * 初始化progressdialog
+//     *
+//     * @author hexiaodong
+//     */
+//    private void initProgressDialog() {
+//        mAlertDialog = new AlertDialog.Builder(this).create();
+//        mAlertDialog.setTitle(title);
+//        mAlertDialog.setMessage("正在加载数据。。。");
+//        mAlertDialog.setCancelable(false);
+//    }
 
     /**
      * 初始化三方api
@@ -154,7 +148,7 @@ public class SharePopup extends Activity implements OnClickListener {
             finish();
             return;
         }
-        mAlertDialog.show();
+//        mAlertDialog.show();
         if (!TextUtils.isEmpty(url)) { //如果跳转地址不为空
             shareURLToWeiXin(title, content, url, scene);
         }
@@ -199,8 +193,8 @@ public class SharePopup extends Activity implements OnClickListener {
         req.message = msg;
         req.scene = scene;
         api.sendReq(req);
-        mAlertDialog.dismiss();
-        finish();
+//        mAlertDialog.dismiss();
+//        finish();
     }
 
     private String buildTransaction(final String type) {

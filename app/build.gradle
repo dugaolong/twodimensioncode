@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias '123456'
+            keyPassword '123456'
+            storeFile file('/Users/dugaolong/github/twodimensioncode/app/keystore.jks')
+            storePassword '123456'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
     defaultConfig {
@@ -10,14 +18,15 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
-
     /**
      * 配置生成的apk打包的名称
      */
@@ -25,10 +34,10 @@ android {
         variant.outputs.each { output ->
             def outputFile = output.outputFile
             if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                if (variant.buildType.name.equals('debug')){
+                if (variant.buildType.name.equals('debug')) {
                     def fileName = "twodimensioncode.apk"
                     output.outputFile = new File(outputFile.parent, fileName)
-                }else {
+                } else {
                     // 输出apk名称为HeJiaoYu_GD_XXX.apk
                     def fileName = "twodimensioncode_Release.apk"
                     output.outputFile = new File(outputFile.parent, fileName)
@@ -36,24 +45,23 @@ android {
             }
         }
     }
+    productFlavors {
+    }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:23.2.1'
     testCompile 'junit:junit:4.12'
-//    compile project(':lib-qr-scan')
+    //    compile project(':lib-qr-scan')
     compile 'com.android.support:design:23.2.1'
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
     //郭林的数据库
     compile 'org.litepal.android:core:1.3.2'
-
     compile 'com.android.support:cardview-v7:23.2.1'
-
     compile 'com.google.zxing:core:3.2.1'
     compile 'com.journeyapps:zxing-android-embedded:3.3.0'
-
 }
