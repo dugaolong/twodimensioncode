@@ -17,8 +17,8 @@ public class CustomScanActivity extends AppCompatActivity implements DecoratedBa
     // 添加一个按钮用来控制闪光灯，同时添加两个按钮表示其他功能，先用Toast表示
 
     private Button swichLight;
-    private Button hint1Show;
-    private Button hint2Show;
+//    private Button hint1Show;
+//    private Button hint2Show;
     private DecoratedBarcodeView mDBV;
 
     private CaptureManager captureManager;
@@ -31,8 +31,8 @@ public class CustomScanActivity extends AppCompatActivity implements DecoratedBa
 //        ButterKnife.bind(this);
 
         swichLight = (Button) findViewById(R.id.btn_switch);
-        hint1Show = (Button) findViewById(R.id.btn_hint1);
-        hint2Show = (Button) findViewById(R.id.btn_hint2);
+//        hint1Show = (Button) findViewById(R.id.btn_hint1);
+//        hint2Show = (Button) findViewById(R.id.btn_hint2);
         mDBV = (DecoratedBarcodeView)findViewById(R.id.dbv_custom);
         mDBV.setTorchListener(this);
 

@@ -75,7 +75,7 @@ public class SettingActivity extends Activity implements CompoundButton.OnChecke
                 data.putString(SharePopup.SCENE, "2");
                 data.putString(SharePopup.TITLE, "扫描二维码");
                 data.putString(SharePopup.CONTENT, "扫描二维码应用让你的生活更简单！");
-                data.putString(SharePopup.URL, "http://app.mi.com/details?id=www.dugaolong.com.xianshishigongjiao");
+                data.putString(SharePopup.URL, "http://app.mi.com/details?id=com.dgl.www.twodimensioncode");
                 intent.putExtras(data);
                 startActivity(intent);
                 break;

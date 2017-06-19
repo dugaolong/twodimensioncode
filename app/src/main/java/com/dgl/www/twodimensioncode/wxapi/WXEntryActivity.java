@@ -2,8 +2,8 @@ package com.dgl.www.twodimensioncode.wxapi;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 
+import com.dgl.www.twodimensioncode.ToastUtils;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
@@ -29,31 +29,24 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
     }
 
 
+    //分享后的回调
     @Override
     public void onResp(BaseResp baseResp) {
-        String result = null;
-
         switch (baseResp.errCode) {
             case BaseResp.ErrCode.ERR_OK:
-                result = "成功";
+                ToastUtils.showToast("分享成功");
                 break;
             case BaseResp.ErrCode.ERR_USER_CANCEL:
-                result = "取消";
+                ToastUtils.showToast("取消分享");
                 break;
             case BaseResp.ErrCode.ERR_AUTH_DENIED:
-                result = "拒绝";
+                ToastUtils.showToast("分享被拒绝");
                 break;
             default:
-                result = "未知原因";
+                ToastUtils.showToast("未知原因");
                 break;
         }
-        //只有成功的时候才获得积分
-        if (result.equals("成功")) {
-
-        }
-        Log.e("WXEntryActivity","result="+result);
         this.finish();
-
     }
 
 

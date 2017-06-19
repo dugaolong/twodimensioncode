@@ -10,30 +10,37 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ui.CustomScanActivity">
 
-
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="闪光灯"
-        android:id="@+id/btn_switch"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true" />
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="闪光灯"
+    android:id="@+id/btn_switch"
+    android:layout_alignParentBottom="true"
+    android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hint_1"
-        android:id="@+id/btn_hint1"
-        android:layout_alignTop="@+id/btn_switch"
-        android:layout_centerHorizontal="true" />
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="闪光灯"-->
+        <!--android:id="@+id/btn_switch"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentLeft="true" />-->
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hint_2"
-        android:id="@+id/btn_hint2"
-        android:layout_alignTop="@+id/btn_hint1"
-        android:layout_alignParentRight="true" />
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="hint_1"-->
+        <!--android:id="@+id/btn_hint1"-->
+        <!--android:layout_alignTop="@+id/btn_switch"-->
+        <!--android:layout_centerHorizontal="true" />-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="hint_2"-->
+        <!--android:id="@+id/btn_hint2"-->
+        <!--android:layout_alignTop="@+id/btn_hint1"-->
+        <!--android:layout_alignParentRight="true" />-->
 
     <!-- 我这里只是在大局下修改了一些样式，不过其实 扫描框中的 各种激光条，边框都可以改变，有兴趣的同学可以自己去搜一下 -->
     <!-- 这个控件就是扫描的窗口了 -->
@@ -46,8 +53,7 @@
 
         app:zxing_preview_scaling_strategy="fitXY"
         app:zxing_use_texture_view="true"
-        android:layout_above="@+id/btn_switch"
-        android:layout_alignRight="@+id/btn_hint2">
+        android:layout_above="@+id/btn_switch">
     </com.journeyapps.barcodescanner.DecoratedBarcodeView>
 
 </RelativeLayout>

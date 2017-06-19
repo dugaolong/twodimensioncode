@@ -194,7 +194,7 @@ public class SharePopup extends Activity implements OnClickListener {
         req.scene = scene;
         api.sendReq(req);
 //        mAlertDialog.dismiss();
-//        finish();
+        finish();
     }
 
     private String buildTransaction(final String type) {
