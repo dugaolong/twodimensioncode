@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
-import android.util.Log;
 
 import com.dgl.www.twodimensioncode.utils.LogUtil;
 
@@ -59,8 +58,8 @@ public class MyApplication extends Application {
 //        QrScan.getInstance().init(configuration);
 
         //当前所在的Activity
-        String runningActivityName = MyApplication.getInstance().getRunningActivityName();
-        Log.i("currentActivity:", "当前所在的Activity为:" + runningActivityName);
+//        String runningActivityName = MyApplication.getInstance().getRunningActivityName();
+//        Log.i("currentActivity:", "当前所在的Activity为:" + runningActivityName);
     }
 
     //全局实例
@@ -121,9 +120,9 @@ public class MyApplication extends Application {
     //debug默认签名中含有的信息
     private final static X500Principal DEBUG_DN = new X500Principal("CN=Android Debug,O=Android,C=US");
     //位于栈顶的activity
-    public String getRunningActivityName() {
-        android.app.ActivityManager mActivityManager = (android.app.ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        return mActivityManager.getRunningTasks(1).get(0).topActivity.getClassName();
-    }
+//    public String getRunningActivityName() {
+//        android.app.ActivityManager mActivityManager = (android.app.ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+//        return mActivityManager.getRunningTasks(1).get(0).topActivity.getClassName();
+//    }
 
 }
