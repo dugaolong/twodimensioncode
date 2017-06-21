@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!--<uses-permission android:name="android.permission.WRITE_SETTINGS" />-->
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <uses-feature android:name="android.hardware.camera" />
@@ -12,7 +12,7 @@
     <!-- 声明一项 < uses-feature > 的目的，是为了把应用程序所依赖的软硬件特性告知应用程序之外
     的对象。 本元素给出了一个 required 属性， 用于指定应用程序是否必需该项特性，也即不声明该项特性的话就无法正常运行；
      或者最好是提供该项特性，但没有的话也能运行。   -->
-    <uses-feature android:name="android.permission.WRITE_SETTINGS" />
+    <!--<uses-feature android:name="android.permission.WRITE_SETTINGS" />-->
     <!--<uses-feature android:name="android.permission.GET_TASKS" />-->
 
     <application

@@ -16,8 +16,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.provider.Settings.SettingNotFoundException;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -68,12 +66,13 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
                     WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
         }
         setContentView(R.layout.main_layout);
-        try {
-            default_sound_state = Settings.System.getInt(getContentResolver(), Settings.System.SOUND_EFFECTS_ENABLED);
-            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 10*60*1000);
-        } catch (SettingNotFoundException e) {
-            e.printStackTrace();
-        }
+//        checkPermission();
+//        try {
+//            default_sound_state = Settings.System.getInt(getContentResolver(), Settings.System.SOUND_EFFECTS_ENABLED);
+//            Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, 10*60*1000);
+//        } catch (SettingNotFoundException e) {
+//            e.printStackTrace();
+//        }
         mContext = this;
         //PushManager.getInstance().initialize(this.getApplicationContext());
         //stopService(new Intent(this, MsgService.class));
@@ -81,8 +80,20 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
         initListener();
 
         showActivity();
-    }
 
+
+    }
+//    private void checkPermission() {
+//        if (!Settings.System.canWrite(this)) {
+//
+//            Uri selfPackageUri = Uri.parse("package:"
+//                    + this.getPackageName());
+//            Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS,
+//                    selfPackageUri);
+//            startActivity(intent);
+//            ToastUtils.showToast("请在该设置页面勾选，才可以使用扫描二维码功能");
+//        }
+//    }
 
 
     @Override
