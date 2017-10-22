@@ -16,8 +16,10 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
@@ -30,6 +32,8 @@ import com.dgl.www.twodimensioncode.ui.HistoryActivity;
 import com.dgl.www.twodimensioncode.ui.ScanActivity;
 import com.dgl.www.twodimensioncode.ui.SettingActivity;
 import com.dgl.www.twodimensioncode.utils.LogUtil;
+import com.xiaomi.ad.SplashAdListener;
+import com.xiaomi.ad.adView.SplashAd;
 
 import java.util.HashMap;
 import java.util.List;
@@ -52,7 +56,9 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
     private static int default_sound_state = -1;
     private List<Map<String, String>> list;
 //    private ImageView user_imageview;//用户头像
-
+    private static final String POSITION_ID = "";//
+    private ViewGroup mContainer;
+    private static final String TAG = "MainActivity";
 
 
     @Override
@@ -80,7 +86,32 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
         initListener();
 
         showActivity();
+        mContainer = (ViewGroup) findViewById(R.id.splash_ad_container);
+        SplashAd splashAd = new SplashAd(this, mContainer, R.drawable.splash_default_picture, new SplashAdListener() {
+            @Override
+            public void onAdPresent() {
+                // 开屏广告展示
+                Log.d(TAG, "onAdPresent");
+            }
 
+            @Override
+            public void onAdClick() {
+                //用户点击了开屏广告
+                Log.d(TAG, "onAdClick");
+            }
+
+            @Override
+            public void onAdDismissed() {
+                //这个方法被调用时，表示从开屏广告消失。
+                Log.d(TAG, "onAdDismissed");
+            }
+
+            @Override
+            public void onAdFailed(String s) {
+                Log.d(TAG, "onAdFailed, message: " + s);
+            }
+        });
+        splashAd.requestAd(POSITION_ID);
 
     }
 //    private void checkPermission() {

@@ -124,4 +124,10 @@
         <!--android:layout_margin="8dip"-->
         <!--android:src="@drawable/person_face_ico" />-->
 
+    <FrameLayout
+        android:id="@+id/splash_ad_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff" />
+
 </RelativeLayout>
