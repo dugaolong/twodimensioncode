@@ -55,20 +55,13 @@ public class SharePopup extends Activity implements OnClickListener {
     //此处填写微信API提供的AppID
     private String WEIXIN_APP_ID = "wxdd5a382733d796e6";
 
-//    private AlertDialog mAlertDialog;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getBundle();
-//        initProgressDialog();
         initApi();
-//        if (scene.equals(SCENE_2)) {
-//            shareToWeiXin(SendMessageToWX.Req.WXSceneSession);
-//        } else if (scene.equals(SCENE_3)) {
-//            shareToWeiXin(SendMessageToWX.Req.WXSceneTimeline);
-//        }
         normalInit();
     }
 
@@ -89,17 +82,6 @@ public class SharePopup extends Activity implements OnClickListener {
             scene = bundle.getString(SCENE);
     }
 
-//    /**
-//     * 初始化progressdialog
-//     *
-//     * @author hexiaodong
-//     */
-//    private void initProgressDialog() {
-//        mAlertDialog = new AlertDialog.Builder(this).create();
-//        mAlertDialog.setTitle(title);
-//        mAlertDialog.setMessage("正在加载数据。。。");
-//        mAlertDialog.setCancelable(false);
-//    }
 
     /**
      * 初始化三方api
@@ -148,7 +130,6 @@ public class SharePopup extends Activity implements OnClickListener {
             finish();
             return;
         }
-//        mAlertDialog.show();
         if (!TextUtils.isEmpty(url)) { //如果跳转地址不为空
             shareURLToWeiXin(title, content, url, scene);
         }
@@ -193,7 +174,6 @@ public class SharePopup extends Activity implements OnClickListener {
         req.message = msg;
         req.scene = scene;
         api.sendReq(req);
-//        mAlertDialog.dismiss();
         finish();
     }
 

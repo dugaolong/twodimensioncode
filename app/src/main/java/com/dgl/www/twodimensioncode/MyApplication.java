@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 
 import com.dgl.www.twodimensioncode.utils.LogUtil;
+import com.xiaomi.ad.AdSdk;
 
 import org.litepal.LitePalApplication;
 
@@ -40,26 +41,11 @@ public class MyApplication extends Application {
         }
 
         LitePalApplication.initialize(this);
-//        // 自定义配置
-//        QrScanConfiguration configuration = new QrScanConfiguration.Builder(this)
-//                .setTitleHeight(53)
-//                .setTitleText("来扫一扫")
-//                .setTitleTextSize(18)
-//                .setTitleTextColor(R.color.white)
-//                .setTipText("将二维码放入框内扫描~")
-//                .setTipTextSize(14)
-//                .setTipMarginTop(40)
-//                .setTipTextColor(R.color.white)
-//                .setSlideIcon(R.mipmap.capture_add_scanning)
-//                .setAngleColor(R.color.white)
-//                .setMaskColor(R.color.black)
-//                .setScanFrameRectRate((float) 0.8)
-//                .build();
-//        QrScan.getInstance().init(configuration);
+        //配置小米广告的sdk
+        AdSdk.initialize(this, "2882303761517587904");
+        AdSdk.setDebugOn(); // 打开调试，输出调试信息
+        AdSdk.setMockOn();  // 调试时打开，正式发布时关闭
 
-        //当前所在的Activity
-//        String runningActivityName = MyApplication.getInstance().getRunningActivityName();
-//        Log.i("currentActivity:", "当前所在的Activity为:" + runningActivityName);
     }
 
     //全局实例

@@ -68,7 +68,6 @@ public class HistoryActivity extends Activity implements HistoryAdapter.OnRecycl
 
     @Override
     public void onItemClick(View view, int position) {
-//        ToastUtils.showToast(mDatas.get(position).getContent());
         Intent intent = new Intent(this, HistoryDetailActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("data", mDatas.get(position));

@@ -127,9 +127,6 @@ public class ScanActivity extends Activity implements View.OnClickListener {
     //初始化音频
     private void initBeepSound() {
         if (mediaPlayer == null) {
-            // The volume on STREAM_SYSTEM is not adjustable, and users found it
-            // too loud,
-            // so we now play on the music stream.
             setVolumeControlStream(AudioManager.STREAM_MUSIC);
             mediaPlayer = new MediaPlayer();
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_ALARM);

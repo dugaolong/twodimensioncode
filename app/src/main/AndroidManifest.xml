@@ -2,10 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dgl.www.twodimensioncode">
 
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <!--<uses-permission android:name="android.permission.WRITE_SETTINGS" />-->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -13,7 +13,13 @@
     的对象。 本元素给出了一个 required 属性， 用于指定应用程序是否必需该项特性，也即不声明该项特性的话就无法正常运行；
      或者最好是提供该项特性，但没有的话也能运行。   -->
     <!--<uses-feature android:name="android.permission.WRITE_SETTINGS" />-->
-    <!--<uses-feature android:name="android.permission.GET_TASKS" />-->
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
 
     <application
         android:name="com.dgl.www.twodimensioncode.MyApplication"
@@ -24,16 +30,19 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <!--<activity android:name="com.dgl.www.twodimensioncode.IndexActivity"/>-->
         <activity android:name=".ui.GenerateActivity"></activity>
-        <activity android:name="com.dgl.www.twodimensioncode.ui.ScanActivity"/>
-        <activity android:name="com.dgl.www.twodimensioncode.ui.HistoryActivity"/>
-        <activity android:name="com.dgl.www.twodimensioncode.ui.SettingActivity"/>
-        <activity android:name="com.dgl.www.twodimensioncode.ui.ResultActivity"/>
-        <activity android:name="com.dgl.www.twodimensioncode.ui.HistoryDetailActivity"/>
-        <activity android:name="com.dgl.www.twodimensioncode.ui.CustomScanActivity"/>
-        <activity android:name="com.dgl.www.twodimensioncode.ui.SharePopup"/>
+        <activity android:name="com.dgl.www.twodimensioncode.ui.ScanActivity" />
+        <activity android:name="com.dgl.www.twodimensioncode.ui.HistoryActivity" />
+        <activity android:name="com.dgl.www.twodimensioncode.ui.SettingActivity" />
+        <activity android:name="com.dgl.www.twodimensioncode.ui.ResultActivity" />
+        <activity android:name="com.dgl.www.twodimensioncode.ui.HistoryDetailActivity" />
+        <activity android:name="com.dgl.www.twodimensioncode.ui.CustomScanActivity" />
+        <activity android:name="com.dgl.www.twodimensioncode.ui.SharePopup" />
 
-        <activity android:name="com.dgl.www.twodimensioncode.MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity
+            android:name="com.dgl.www.twodimensioncode.MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.AppCompat.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,8 +63,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"></activity>
 
         <activity
             android:name="com.xiaomi.ad.AdActivity"

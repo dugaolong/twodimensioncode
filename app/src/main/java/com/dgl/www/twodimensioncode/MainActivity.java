@@ -9,14 +9,19 @@
  */
 package com.dgl.www.twodimensioncode;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ActivityGroup;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -25,6 +30,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.dgl.www.twodimensioncode.config.StaticString;
 import com.dgl.www.twodimensioncode.ui.GenerateActivity;
@@ -36,8 +42,6 @@ import com.xiaomi.ad.SplashAdListener;
 import com.xiaomi.ad.adView.SplashAd;
 
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 贵州校讯通主页入口
@@ -45,7 +49,7 @@ import java.util.Map;
  * @date 2014年9月25日 上午19:30:54
  */
 @SuppressLint("NewApi")
-public class MainActivity extends ActivityGroup implements OnClickListener {
+public class MainActivity extends ActivityGroup implements OnClickListener ,ActivityCompat.OnRequestPermissionsResultCallback{
 
     private RadioButton star;// generate
     private RadioButton scan;// 扫描
@@ -53,13 +57,10 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
     private RadioButton setting;// setting
     private FrameLayout container;
     private Context mContext;
-    private static int default_sound_state = -1;
-    private List<Map<String, String>> list;
-//    private ImageView user_imageview;//用户头像
-    private static final String POSITION_ID = "";//
+    private static final String POSITION_ID = "c7a5c4045ea7fb90d89c1cad396c4538";//
     private ViewGroup mContainer;
     private static final String TAG = "MainActivity";
-
+    public static final int REQUESTCODE_CAMERA = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,10 +81,14 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
 //            e.printStackTrace();
 //        }
         mContext = this;
-        //PushManager.getInstance().initialize(this.getApplicationContext());
-        //stopService(new Intent(this, MsgService.class));
         initView();
         initListener();
+        //请求权限
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {// ANDROID6.0 请求权限
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, REQUESTCODE_CAMERA);
+            }
+        }
 
         showActivity();
         mContainer = (ViewGroup) findViewById(R.id.splash_ad_container);
@@ -228,7 +233,7 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        Settings.System.putInt(getContentResolver(), Settings.System.SOUND_EFFECTS_ENABLED, default_sound_state == -1 ? 0 : default_sound_state);
+        finish();
     }
 
     @Override
@@ -261,5 +266,38 @@ public class MainActivity extends ActivityGroup implements OnClickListener {
         launchActivity(StaticString.ScanActivity, ScanActivity.class);
 //        msg.setText(R.string.study_circle);
         scan.setChecked(true);
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            // 捕获back键，在展示广告期间按back键，不跳过广告
+            if (mContainer.getVisibility() == View.VISIBLE) {
+                return true;
+            }
+        }
+        return super.dispatchKeyEvent(event);
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case 1:
+                if (requestCode == REQUESTCODE_CAMERA) {
+                    if(grantResults.length>0){
+                        if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                            // Permission Granted
+//                        Toast.makeText(this,"You Granted the permission",Toast.LENGTH_LONG).show();
+                        } else {
+                            // Permission Denied
+//                        Toast.makeText(this,"You denied the permission",Toast.LENGTH_LONG).show();
+                            Toast.makeText(this,"您禁止了相机权限!",Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                }
+                break;
+            default:
+        }
     }
 }

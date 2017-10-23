@@ -124,14 +124,6 @@ public class IndexActivity extends FragmentActivity implements View.OnClickListe
         mTabBtnFrd.setOnClickListener(this);
         mTabBtnAddress.setOnClickListener(this);
         mTabBtnSettings.setOnClickListener(this);
-//        MainTabScan tab01 = new MainTabScan();
-//        MainTab02 tab02 = new MainTab02();
-//        MainTab03 tab03 = new MainTab03();
-//        MainTab04 tab04 = new MainTab04();
-//        mFragments.add(tab01);
-//        mFragments.add(tab02);
-//        mFragments.add(tab03);
-//        mFragments.add(tab04);
         setViewPagerScrollSpeed();
     }
 

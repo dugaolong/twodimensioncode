@@ -7,9 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.dgl.www.twodimensioncode.R;
+import com.dgl.www.twodimensioncode.utils.LogUtil;
 import com.journeyapps.barcodescanner.CaptureManager;
 import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 
@@ -17,22 +17,17 @@ public class CustomScanActivity extends AppCompatActivity implements DecoratedBa
     // 添加一个按钮用来控制闪光灯，同时添加两个按钮表示其他功能，先用Toast表示
 
     private Button swichLight;
-//    private Button hint1Show;
-//    private Button hint2Show;
     private DecoratedBarcodeView mDBV;
-
     private CaptureManager captureManager;
     private boolean isLightOn = false;
+    private final String TAG = "CustomScanActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_scan);
-//        ButterKnife.bind(this);
 
         swichLight = (Button) findViewById(R.id.btn_switch);
-//        hint1Show = (Button) findViewById(R.id.btn_hint1);
-//        hint2Show = (Button) findViewById(R.id.btn_hint2);
         mDBV = (DecoratedBarcodeView)findViewById(R.id.dbv_custom);
         mDBV.setTorchListener(this);
 
@@ -81,13 +76,13 @@ public class CustomScanActivity extends AppCompatActivity implements DecoratedBa
     // torch 手电筒
     @Override
     public void onTorchOn() {
-        Toast.makeText(this,"torch on",Toast.LENGTH_LONG).show();
+        LogUtil.d("CustomScanActivity","torch on");
         isLightOn = true;
     }
 
     @Override
     public void onTorchOff() {
-        Toast.makeText(this,"torch off",Toast.LENGTH_LONG).show();
+        LogUtil.d("CustomScanActivity","torch off");
         isLightOn = false;
     }
 
