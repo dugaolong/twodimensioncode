@@ -27,7 +27,6 @@
                 android:background="@drawable/public_back" />
 
             <TextView
-                android:id="@+id/btn_back_return"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"

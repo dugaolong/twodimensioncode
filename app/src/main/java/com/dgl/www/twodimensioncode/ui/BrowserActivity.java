@@ -23,7 +23,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
-import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebSettings.RenderPriority;
 import android.webkit.WebView;
@@ -212,18 +211,18 @@ public class BrowserActivity extends Activity implements OnClickListener {
         webView.setWebChromeClient(new MyWebChromeClient());
         webView.setWebViewClient(new WebViewClient() {
 
-            @Override
-            public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
-                //Url黑名单过滤
-                return super.shouldInterceptRequest(view, url);
-            }
+//            @Override
+//            public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
+//                //Url黑名单过滤
+//                return super.shouldInterceptRequest(view, url);
+//            }
 
             //判断url,在这里可以进入原生页面
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 titleLayout.setVisibility(View.VISIBLE);
                 Uri uri = Uri.parse(url);
-                return true;
+                return false;
             }
 
             @Override

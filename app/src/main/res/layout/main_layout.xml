@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <View
         android:id="@+id/popu_view"
@@ -115,14 +115,6 @@
         android:layout_above="@id/bottomList"
         android:orientation="vertical" >
     </FrameLayout>
-
-    <!--<ImageView-->
-        <!--android:id="@+id/user_imageview"-->
-        <!--android:layout_width="30dp"-->
-        <!--android:layout_height="30dp"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_margin="8dip"-->
-        <!--android:src="@drawable/person_face_ico" />-->
 
     <FrameLayout
         android:id="@+id/splash_ad_container"

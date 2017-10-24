@@ -34,9 +34,6 @@
 
 
     <!-- 各地区版本主题颜色配置 -->
-    <!-- 福建版颜色绿色-->
-    <!--<color name="app_theme_color1">#39b08a</color>-->
-    <!-- 浙江、浙江普陀、贵州、广东、江西、山东、河北版颜色 -->
     <color name="app_theme_color1">#3184ca</color><!--&lt;!&ndash;蓝色&ndash;&gt;-->
 
     <!-- <color name="setting_background_color1">#2e513c</color> -->
