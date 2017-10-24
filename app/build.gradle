@@ -26,6 +26,13 @@ android {
             signingConfig signingConfigs.config
         }
     }
+    sourceSets {
+        main {
+            assets.srcDirs = ['assets']
+        }
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
     /**
      * 配置生成的apk打包的名称
      */
