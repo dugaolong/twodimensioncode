@@ -43,21 +43,16 @@ public class ScanActivity extends Activity implements View.OnClickListener {
     private static final float BEEP_VOLUME = 0.10f;
     private static final long VIBRATE_DURATION = 200L;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scan);
         mContext = this;
-
         textView = (TextView) findViewById(R.id.result);
         linearLayout = (LinearLayout) findViewById(R.id.resultLl);
         findViewById(R.id.scanBtn).setOnClickListener(this);
         initBeepSound();
-
-
     }
-
 
     @Override
     public void onClick(View v) {

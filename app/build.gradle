@@ -14,7 +14,7 @@ android {
     defaultConfig {
         applicationId "com.dgl.www.twodimensioncode"
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 22
         versionCode 171022
         versionName "1.6"
         signingConfig signingConfigs.config

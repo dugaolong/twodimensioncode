@@ -20,7 +20,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,8 +37,6 @@ import com.dgl.www.twodimensioncode.ui.HistoryActivity;
 import com.dgl.www.twodimensioncode.ui.ScanActivity;
 import com.dgl.www.twodimensioncode.ui.SettingActivity;
 import com.dgl.www.twodimensioncode.utils.LogUtil;
-import com.xiaomi.ad.SplashAdListener;
-import com.xiaomi.ad.adView.SplashAd;
 
 import java.util.HashMap;
 
@@ -57,7 +54,6 @@ public class MainActivity extends ActivityGroup implements OnClickListener ,Acti
     private RadioButton setting;// setting
     private FrameLayout container;
     private Context mContext;
-    private static final String POSITION_ID = "c7a5c4045ea7fb90d89c1cad396c4538";//
     private ViewGroup mContainer;
     private static final String TAG = "MainActivity";
     public static final int REQUESTCODE_CAMERA = 1;
@@ -92,31 +88,7 @@ public class MainActivity extends ActivityGroup implements OnClickListener ,Acti
 
         showActivity();
         mContainer = (ViewGroup) findViewById(R.id.splash_ad_container);
-        SplashAd splashAd = new SplashAd(this, mContainer, R.drawable.splash_default_picture, new SplashAdListener() {
-            @Override
-            public void onAdPresent() {
-                // 开屏广告展示
-                Log.d(TAG, "onAdPresent");
-            }
 
-            @Override
-            public void onAdClick() {
-                //用户点击了开屏广告
-                Log.d(TAG, "onAdClick");
-            }
-
-            @Override
-            public void onAdDismissed() {
-                //这个方法被调用时，表示从开屏广告消失。
-                Log.d(TAG, "onAdDismissed");
-            }
-
-            @Override
-            public void onAdFailed(String s) {
-                Log.d(TAG, "onAdFailed, message: " + s);
-            }
-        });
-        splashAd.requestAd(POSITION_ID);
 
     }
 //    private void checkPermission() {

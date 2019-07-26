@@ -109,6 +109,7 @@
     </RelativeLayout>
 
     <FrameLayout
+        android:visibility="gone"
         android:id="@+id/fragmentRoot"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
@@ -117,6 +118,7 @@
     </FrameLayout>
 
     <FrameLayout
+        android:visibility="gone"
         android:id="@+id/splash_ad_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

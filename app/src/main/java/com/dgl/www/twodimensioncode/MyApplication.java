@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 
 import com.dgl.www.twodimensioncode.utils.LogUtil;
-import com.xiaomi.ad.AdSdk;
+//import com.xiaomi.ad.AdSdk;
 
 import org.litepal.LitePalApplication;
 
@@ -42,8 +42,8 @@ public class MyApplication extends Application {
 
         LitePalApplication.initialize(this);
         //配置小米广告的sdk
-        AdSdk.initialize(this, "2882303761517587904");
-        AdSdk.setDebugOn(); // 打开调试，输出调试信息
+//        AdSdk.initialize(this, "2882303761517587904");
+//        AdSdk.setDebugOn(); // 打开调试，输出调试信息
 
     }
 
